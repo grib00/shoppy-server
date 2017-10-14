@@ -1,0 +1,47 @@
+body {
+  font-family: Arial;
+}
+
+.select-page {
+  background-color: #AAAAB1;
+}
+
+.order-page {
+  background-color: #938F7A;
+}
+
+.menu {
+  background-color: white;
+  padding: 6px;
+}
+
+.items {
+  width: 100%;
+}
+
+.item {
+  display: inline-block;
+  margin: 10px;
+  padding: 6px;
+  background-color: White;
+}
+
+.explain {
+  font-size: smaller;
+}
+
+.orange {
+  background-color: #D99923;
+}
+
+/*
+.button {
+    -moz-appearance: button;
+    -ms-appearance: button;
+    -o-appearance: button;
+    -webkit-appearance: button;
+    appearance: button;
+    text-decoration: none;
+    padding: 0.2em 0.4em;
+}​
+*/
