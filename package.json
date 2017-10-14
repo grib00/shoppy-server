@@ -1,0 +1,19 @@
+{
+  "name": "shoppy",
+  "version": "1.0.0",
+  "description": "Shoppy OpenShift Application",
+  "keywords": ["OpenShift", "Node.js", "application", "shop" ],
+  "author": {
+    "name": "Grib00"
+  },
+  "engines": {
+    "node": ">= 0.6.0",
+    "npm": ">= 1.0.0"
+  },
+  "dependencies": {},
+  "devDependencies": {},
+  "bundleDependencies": [],
+
+  "private": true,
+  "main": "server.js"
+}
