@@ -12,8 +12,8 @@ for(var c in catalog.categories) if (c.length === 2) {
 	catalog.categories[c].items.forEach(function (it) { catalog.categories.allItems[it.r] = it; });
 }
 
-var host = process.env.IP || process.env.OPENSHIFT_NODEJS_IP ||"127.0.0.1";
-var port = process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 8080;
+var host = process.env.OPENSHIFT_BUILD_NAMESPACE ? "0.0.0.0" : "127.0.0.1";
+var port = process.env.OPENSHIFT_BUILD_NAMESPACE ?  8080 : 8080;
 var appPath = "/555";
 var secret = "6789974";
 var dataDir = process.env.OPENSHIFT_DATA_DIR || "./data";
