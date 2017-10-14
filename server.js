@@ -16,7 +16,7 @@ var host = process.env.OPENSHIFT_BUILD_NAMESPACE ? "0.0.0.0" : "127.0.0.1";
 var port = process.env.OPENSHIFT_BUILD_NAMESPACE ?  8080 : 8080;
 var appPath = "/555";
 var secret = "6789974";
-var dataDir = process.env.OPENSHIFT_DATA_DIR || "./data";
+var dataDir = process.env.OPENSHIFT_BUILD_NAMESPACE ? "/shoppystore" : "./shoppystore";
 
 var appRootDir = ".";
 var publicDir = appRootDir + "/public";
