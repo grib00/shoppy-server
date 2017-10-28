@@ -12,10 +12,11 @@ for(var c in catalog.categories) if (c.length === 2) {
 	catalog.categories[c].items.forEach(function (it) { catalog.categories.allItems[it.r] = it; });
 }
 
-var host = process.env.OPENSHIFT_BUILD_NAMESPACE ? "0.0.0.0" : "127.0.0.1";
-var port = process.env.OPENSHIFT_BUILD_NAMESPACE ?  8080 : 8080;
+var version = "4.1"
 var appPath = "/555";
 var secret = "6789974";
+var host = process.env.OPENSHIFT_BUILD_NAMESPACE ? "0.0.0.0" : "127.0.0.1";
+var port = process.env.OPENSHIFT_BUILD_NAMESPACE ?  8080 : 8080;
 var dataDir = process.env.OPENSHIFT_BUILD_NAMESPACE ? "/shoppystore" : "./shoppystore";
 
 var appRootDir = ".";
@@ -392,5 +393,5 @@ function serve(request, response) {
 }
 
 http.createServer(serve).listen(port, host);
-console.log("started");
+console.log("started v" + version);
 console.log("http://" + host + ":" + port + appPath);
