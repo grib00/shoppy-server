@@ -142,15 +142,18 @@ function computeFinalPrice(articleIds) {
 }
 
 function recordOrder(order) {
-	fs.appendFile(dbprefix + "orders.json", JSON.stringify(order) + ",\n");
-	fs.appendFile(dbprefix + "orders.csv",
+	fs.appendFileSync(dbprefix + "orders.json",
+		JSON.stringify(order) + ",\n",
+		"utf8");
+	fs.appendFileSync(dbprefix + "orders.csv",
 		order.n + ","
-		+ order.d + ","
-		+ order.fn + ","
-		+ order.ln + ","
-		+ order.em + ","
-		+ order.p + ","
-		+ order.items + "\r\n");
+			+ order.d + ","
+			+ order.fn + ","
+			+ order.ln + ","
+			+ order.em + ","
+			+ order.p + ","
+			+ order.items + "\r\n",
+		"ascii");
 }
 
 function showArticle(articleId, dim, response, add, remove) {
