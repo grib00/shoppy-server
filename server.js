@@ -12,7 +12,7 @@ for(var c in catalog.categories) if (c.length === 2) {
 	catalog.categories[c].items.forEach(function (it) { catalog.categories.allItems[it.r] = it; });
 }
 
-var version = "4.1"
+var version = "4.2"
 var appPath = "/555";
 var secret = "6789974";
 var host = process.env.OPENSHIFT_BUILD_NAMESPACE ? "0.0.0.0" : "127.0.0.1";
