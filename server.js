@@ -8,11 +8,11 @@ var path = require("path");
 // load and index the catalog:
 var catalog = require("./catalog.js");
 catalog.categories.allItems = {};
-for(var c in catalog.categories) if (c.length === 2) {
+for (var c in catalog.categories) if (c.length === 2) {
 	catalog.categories[c].items.forEach(function (it) { catalog.categories.allItems[it.r] = it; });
 }
 
-var version = "4.2"
+var version = "4.3"
 var appPath = "/555";
 var secret = "6789974";
 var host = process.env.OPENSHIFT_BUILD_NAMESPACE ? "0.0.0.0" : "127.0.0.1";
@@ -132,13 +132,13 @@ function computeItemsPrice(articleIds) {
 	return articleIds.reduce(function (a, e) { return a + getPrice(e); }, 0.0);
 }
 
-function computeReduction(total) {
+function computeDiscount(total) {
 	return total > 8 ? (total - 8) / 2 : 0;
 }
 
 function computeFinalPrice(articleIds) {
 	var p = computeItemsPrice(articleIds);
-	return p - computeReduction(p);
+	return p - computeDiscount(p);
 }
 
 function recordOrder(order) {
@@ -184,7 +184,7 @@ function showArticle(articleId, dim, response, add, remove) {
 
 function readOrderCntr() {
 	try {
-		return parseFloat(fs.readFileSync(dbprefix + "cntr", "UTF-8"));
+		return parseFloat(fs.readFileSync(dbprefix + "cntr", "utf8"));
 	} catch (e) {
 		return 300;
 	}
@@ -230,7 +230,7 @@ function serveBasket(request, response) {
 	printMenu(response, true, false);
 	var n = basket.items.length;
 	var p0 = computeItemsPrice(basket.items);
-	var r = computeReduction(p0);
+	var r = computeDiscount(p0);
 	var p = computeFinalPrice(basket.items);
 	response.write("<h1>Panier :</h1>");
     response.write("<p><b>Votre panier contient " + n + " article" + (n > 1 ? "s" : "") + ".</b>");
