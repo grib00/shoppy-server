@@ -176,7 +176,7 @@ function showArticle(articleId, dim, response, add, remove) {
 	if (remove) {
 		response.write("<a href='" + appPath + "/panier/supprimer/");
 		response.write(articleId);
-		response.write("'><img src='" + appPath + "/delete.gif' width='20' title='Supprimer du panier'></a>");
+		response.write("'><img src='" + appPath + "/delete.png' width='20' title='Supprimer du panier'></a>");
 	}
 	response.write("&nbsp;" + getPrice(articleId) + " &#x20AC;");
 	response.write("</div>");
